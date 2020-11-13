@@ -1,0 +1,19 @@
+    """
+    PRODUCT_LIST = pd.read_csv('IN\ProductList.csv')
+    PRODUCT_LIST.columns
+    PRODUCT_LIST.rename(columns = {'vendor_url':'ASIN','reprice_sku':'ItemID'}, inplace=True)
+    PRODUCT_LIST.head()
+
+
+
+    ALL_PRODUCT = pd.merge(PRODUCT_LIST, new_merge, on=['ASIN','ItemID'], how='outer')
+    FE_OUTPUT2 = pd.read_csv('IN\FE_OUTPUT.csv')
+    ALL_PRODUCT.drop(['CustomLabel'],axis=1, inplace=True)
+    ALL_PRODUCT.head()
+    print(ALL_PRODUCT)
+    print("|||||||||||||||||||||||||| 50% ")
+
+    ASIN_ID_SKU = pd.merge(ALL_PRODUCT , FE_OUTPUT2, on='ItemID', how='outer')
+    ASIN_ID_SKU.to_csv("OUT\Complete Product List.csv", index=False)
+    print(ASIN_ID_SKU)
+    """
